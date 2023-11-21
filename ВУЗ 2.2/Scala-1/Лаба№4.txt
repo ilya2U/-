@@ -1,0 +1,28 @@
+def function(x:Double):Unit = {
+  var y:Double = 0
+  x match{
+
+    case x if (x>=0 & x<1) => y = x
+    case x if (x>=1 & x <2) => y = -x+2
+    case x if (x>=2 & x <=3)=> y = 2*x-4
+
+  }
+println(y)
+}
+
+def oblast(x:Int,y:Int): Unit ={
+  x match {
+    case x if(x>0 & y>0) => println("1)ѕерва€ четверть")
+    case x if(x<0 & y>0) => println("2)¬тора€ четверть")
+    case x if(x<0 & y<0) => println("3)“реть€ четверть")
+    case x if(x>0 & y<0) => println("4)„етверта€ четверть")
+    case x if(x == 0 && y == 0) => println("n)¬ы попали на координатную ось")
+    case x if(x > 0 && y == 0) => println("вы находитесь между 1 и 4 четвертью")
+    case x if(x < 0 && y == 0) => println("вы находитесь между 2 и 3 четвертью")
+    case x if(x == 0 && y > 0) => println("вы находитесь между 1 и 2 четвертью")
+    case x if(x == 0 && y < 0) => println("вы находитесь между 3 и 4 четвертью")
+  }
+}
+
+function(3)
+oblast(-3,-1)

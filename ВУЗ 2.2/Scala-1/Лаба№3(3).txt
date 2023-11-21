@@ -1,0 +1,34 @@
+trait sum{
+  def sum(l:List[Int]):Unit = {
+    var s = 0
+    for (i <- 0 until  l.length){
+      s = s + l(i)
+    }
+  println("Summa:" + s)
+  }
+}
+
+trait sred{
+  def sred(l:List[Int]):Unit = {
+    var s = 0
+    for (i <- 0 until l.length) {
+      s = s + l(i)
+    }
+    s = s / l.length
+    println("Srednee znach: " + s)
+  }
+}
+
+class Lits(l:List[Int]) extends sum with sred {
+  override def sum(l: List[Int]): Unit = super.sum(l)
+
+  override def sred(l: List[Int]): Unit = super.sred(l)
+}
+var l = List[Int](1,2,3)
+var Li = new Lits(l)
+
+Li.sum(l)
+Li.sred(l)
+
+
+

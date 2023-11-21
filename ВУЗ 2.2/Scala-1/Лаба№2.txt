@@ -1,0 +1,173 @@
+import scala.util.Random
+
+class Building{
+  var street:String = ""
+  var number_of_floors: Int = 5
+
+  def this(Street:String,number:Int){
+    this()
+    this.street = Street
+    this.number_of_floors = number
+  }
+
+  def printInfo(): Unit ={
+    println(street)
+    println(number_of_floors)
+  }
+}
+
+class High_rise_building extends Building{
+
+  var status: String = ""
+  def this(street:String,number: Int, status:String){
+    this()
+    this.street = street
+    this.number_of_floors = number
+    this.status = status
+  }
+
+  override def printInfo(): Unit = {
+    super.printInfo()
+    println(street)
+  }
+
+  def demolition: Unit ={
+    println("Вася, сноси")
+    println("*Взрыв*")
+    status = "Снесено"
+  }
+}
+
+
+class Room{
+  var kol_vo:Int = 5
+
+  def this(kol_vo:Int){
+    this()
+    this.kol_vo = kol_vo
+  }
+  def printInfo: Unit ={
+    println(kol_vo)
+  }
+}
+
+class Kitchen extends Room{
+  var status = ""
+  def this(kol_vo:Int, status:String){
+    this()
+    this.kol_vo = kol_vo
+    this.status = status
+  }
+  override def printInfo: Unit = {
+    super.printInfo
+    println(status)
+  }
+}
+
+class Window extends Room {
+  var status:String = ""
+  def close_windows(x:Int):Unit = x match {
+    case 1 => status = "Открыто"
+    case 2 => status = "На форточке"
+    case 3 => status = "Закрыто"
+    println(status)
+  }
+
+  override def printInfo: Unit = super.printInfo
+}
+
+class Door extends Room{
+  var status:String = ""
+  def status_door(x:Int):Unit = x match {
+    case 1 => status = "Закрыто"
+    case 2 => status = "Открыто"
+    println(status)
+  }
+
+  override def printInfo: Unit = super.printInfo
+}
+
+class Furniture{
+  var manufacturer: String = ""
+  def this(s:String){
+    this()
+    this.manufacturer = s
+  }
+  def printInfo(){
+    println(manufacturer)
+  }
+}
+
+class Chair extends Furniture {
+  var kol_vo:Int = 1
+  def this(s:Int){
+    this()
+    this.kol_vo = s
+  }
+
+  override def printInfo(): Unit = {
+    super.printInfo()
+    println(kol_vo)
+  }
+}
+
+class Fridge extends Furniture {
+  var temp:Double = 0
+  def this(s:Double){
+    this()
+    this.temp = s
+  }
+
+  override def printInfo(): Unit = {
+    super.printInfo()
+    println(temp)
+  }
+
+}
+
+class Lamp extends Furniture{
+  var voltage:Double = 0
+  def this(s:Double){
+    this()
+    this.voltage = s
+  }
+
+  override def printInfo(): Unit = {
+    super.printInfo()
+    println(voltage)
+  }
+}
+
+val b1 = new Building("Пупкина",10)
+b1.printInfo()
+
+var h1 = new High_rise_building(" 1", 10000, "Построенно")
+h1.printInfo()
+h1.demolition
+
+
+var r1 = new Room(5)
+r1.printInfo
+
+var k1 = new Kitchen(2,"Все нормально")
+k1.printInfo
+
+var w1 = new Window()
+w1.close_windows(2)
+
+var d1 = new Door()
+d1.status_door(1)
+d1.printInfo
+
+var f1 = new Furniture("Сибирская исправительная колония №324")
+f1.printInfo()
+
+var c1 = new Chair(289)
+c1.printInfo()
+
+var f2 = new Fridge(-999932.1)
+f2.printInfo()
+
+var l1 = new Lamp(240.450)
+l1.printInfo()
+

@@ -1,0 +1,45 @@
+import scala.collection.mutable
+
+trait q{
+}
+
+trait add extends q {
+  def add(q:mutable.Queue[Int],w:Int,z:Int): Int ={
+    q += w
+    val x = z+1
+    x
+  }
+}
+
+trait delete extends {
+  def delete(q:mutable.Queue[Int],z:Int):Int = {
+    q -= q(z-1)
+    val x = z-1
+    x
+  }
+}
+
+trait output extends q {
+  def output(q: mutable.Queue[Int]): Unit = {
+    print(q)
+  }
+}
+class Queue() extends q with add with delete with output {
+  override def add(q: mutable.Queue[Int],w:Int,z:Int): Int = super.add(q,w,z)
+
+  override def delete(q: mutable.Queue[Int], z: Int): Int = super.delete(q, z)
+
+  override def output(q: mutable.Queue[Int]): Unit = super.output(q)
+}
+
+var qe = new Queue
+var w = new  mutable.Queue[Int]()
+var z = 0
+z = qe.add(w,2,z)
+z = qe.add(w,2,z)
+z = qe.add(w,2,z)
+z = qe.add(w,2,z)
+z = qe.delete(w,z)
+z = qe.delete(w,z)
+qe.output(w)
+
